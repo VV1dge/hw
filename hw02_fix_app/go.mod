@@ -2,7 +2,6 @@ module github.com/fixme_my_friend/hw02_fix_app
 
 go 1.23
 
-toolchain go1.23.0
 
 require (
 	github.com/daixiang0/gci v0.13.4 // indirect
