@@ -37,6 +37,7 @@ func NewBookSravn(year int32, size int32, rate float32, mode Select) *BookSravn 
 		mode: mode,
 	}
 }
+
 func (b *BookSravn) Compare(other *BookSravn) bool {
 	switch b.mode {
 	case ByYear:
@@ -59,33 +60,43 @@ func (r *Book) GetID() int32 {
 func (r *Book) SetID(id int32) {
 	r.id = id
 }
+
 func (r *Book) GetTitle() string {
 	return r.title
 }
+
 func (r *Book) SetTitle(title string) {
 	r.title = title
 }
+
 func (r *Book) GetAuthor() string {
 	return r.author
 }
+
 func (r *Book) SetAuthor(author string) {
 	r.author = author
 }
+
 func (r *Book) GetYear() int32 {
 	return r.year
 }
+
 func (r *Book) SetYear(year int32) {
 	r.year = year
 }
+
 func (r *Book) GetSize() int32 {
 	return r.size
 }
+
 func (r *Book) SetSize(size int32) {
 	r.size = size
 }
+
 func (r *Book) GetRate() float32 {
 	return r.rate
 }
+
 func (r *Book) SetRate(rate float32) {
 	r.rate = rate
 }
