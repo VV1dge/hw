@@ -25,6 +25,12 @@ type Sravn struct {
 	mode Select
 }
 
+func NewSravn(mode Select) *Sravn {
+	return &Sravn{
+		mode: mode,
+	}
+}
+
 func (b *Sravn) Compare(book1, book2 *Book) bool {
 	switch b.mode {
 	case ByYear:
@@ -101,10 +107,10 @@ func main() {
 		"year:", booktest.GetYear(), "size:", booktest.GetSize(), "rate:", booktest.GetRate())
 	book1 := Book{id: 123, title: "Groza", author: "Ostrovskiy", year: 1859, size: 333, rate: 3.5}
 	book2 := Book{id: 124, title: "Oblomov", author: "Goncharov", year: 1847, size: 222, rate: 3.6}
-	booksravnByYear := Sravn{mode: ByYear}
+	booksravnByYear := NewSravn(ByYear)
 	fmt.Println(booksravnByYear.Compare(&book1, &book2))
-	booksravnBySize := Sravn{mode: BySize}
+	booksravnBySize := NewSravn(BySize)
 	fmt.Println(booksravnBySize.Compare(&book1, &book2))
-	booksravnByRate := Sravn{mode: ByRate}
+	booksravnByRate := NewSravn(ByRate)
 	fmt.Println(booksravnByRate.Compare(&book1, &book2))
 }
