@@ -21,31 +21,18 @@ const (
 	ByRate
 )
 
-// BookSravn структура  с полями для сравнения.
-type BookSravn struct {
-	Year int32
-	Size int32
-	Rate float32
+type Sravn struct {
 	mode Select
 }
 
-func NewBookSravn(year int32, size int32, rate float32, mode Select) *BookSravn {
-	return &BookSravn{
-		Year: year,
-		Size: size,
-		Rate: rate,
-		mode: mode,
-	}
-}
-
-func (b *BookSravn) Compare(other *BookSravn) bool {
+func (b *Sravn) Compare(book1, book2 *Book) bool {
 	switch b.mode {
 	case ByYear:
-		return b.Year > other.Year
+		return book1.year > book2.year
 	case BySize:
-		return b.Size > other.Size
+		return book1.size > book2.size
 	case ByRate:
-		return b.Rate > other.Rate
+		return book1.rate > book2.rate
 	default:
 		return false
 	}
@@ -103,22 +90,21 @@ func (r *Book) SetRate(rate float32) {
 
 func main() {
 	// book1 создание экземпляра структуры Book
-	book1 := Book{}
-	book1.SetID(1)
-	book1.SetTitle("Lukomore")
-	book1.SetAuthor("Pushkin")
-	book1.SetYear(1830)
-	book1.SetSize(10)
-	book1.SetRate(1.5)
-	fmt.Println("id:", book1.GetID(), "title:", book1.GetTitle(), "author:", book1.GetAuthor(),
-		"year:", book1.GetYear(), "size:", book1.GetSize(), "rate:", book1.GetRate())
-	booksr1 := NewBookSravn(1830, 2, 1.1, ByRate)
-	booksr2 := NewBookSravn(1831, 1, 1.0, ByRate)
-	fmt.Println("Сравнение по рейтингу:", booksr1.Compare(booksr2))
-	booksr3 := NewBookSravn(1830, 3, 1.0, BySize)
-	booksr4 := NewBookSravn(1831, 5, 1.0, BySize)
-	fmt.Println("Сравнение по размеру:", booksr3.Compare(booksr4))
-	booksr5 := NewBookSravn(1831, 1, 1.0, ByYear)
-	booksr6 := NewBookSravn(1830, 4, 1.0, ByYear)
-	fmt.Println("Сравнение по году:", booksr5.Compare(booksr6))
+	booktest := Book{}
+	booktest.SetID(1)
+	booktest.SetTitle("Lukomore")
+	booktest.SetAuthor("Pushkin")
+	booktest.SetYear(1830)
+	booktest.SetSize(10)
+	booktest.SetRate(1.5)
+	fmt.Println("id:", booktest.GetID(), "title:", booktest.GetTitle(), "author:", booktest.GetAuthor(),
+		"year:", booktest.GetYear(), "size:", booktest.GetSize(), "rate:", booktest.GetRate())
+	book1 := Book{id: 123, title: "Groza", author: "Ostrovskiy", year: 1859, size: 333, rate: 3.5}
+	book2 := Book{id: 124, title: "Oblomov", author: "Goncharov", year: 1847, size: 222, rate: 3.6}
+	booksravnByYear := Sravn{mode: ByYear}
+	fmt.Println(booksravnByYear.Compare(&book1, &book2))
+	booksravnBySize := Sravn{mode: BySize}
+	fmt.Println(booksravnBySize.Compare(&book1, &book2))
+	booksravnByRate := Sravn{mode: ByRate}
+	fmt.Println(booksravnByRate.Compare(&book1, &book2))
 }
