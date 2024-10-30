@@ -15,37 +15,37 @@ type Shape interface {
 // структура для фигуры круг
 
 type Circle struct {
-	radius float64
+	Radius float64
 }
 
 // метод для вычисления площади круга
 
 func (c Circle) Area() float64 {
-	return math.Pi * c.radius * c.radius
+	return math.Pi * c.Radius * c.Radius
 }
 
 // структура для фигуры прямоугольник
 
 type Rectangle struct {
-	width, height float64
+	Width, Height float64
 }
 
 // метод для вычисления площади прямоугольника
 
 func (r Rectangle) Area() float64 {
-	return r.height * r.width
+	return r.Height * r.Width
 }
 
 // структура для фигуры треугольник
 
 type Triangle struct {
-	base, height float64
+	Base, Height float64
 }
 
 // метод для вычисления площади треугольника
 
 func (t Triangle) Area() float64 {
-	return 0.5 * t.base * t.height
+	return 0.5 * t.Base * t.Height
 }
 
 // функция, которая ожидает на входе объект типа Shape и возвращает его площадь
