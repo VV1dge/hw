@@ -3,18 +3,22 @@ package main
 import "fmt"
 
 func CreateBoard(x, y int) string {
+	var chess string
 	for i := 1; i <= x; i++ { // проходимся циклом по строкам
 		for j := 1; j <= y; j++ { // проходмся циклом по столбцам
 			if i%2 != 0 && j%2 != 0 || i%2 == 0 && j%2 == 0 {
 				fmt.Print(" ") // так как пробел это белое, то по условию белые клетки
 				// в четных строках на четных местах, а в нечетных на нечетных местах
+				chess += " "
 			} else {
 				fmt.Print("#") // в любом другом случае на оставшихся местах будут черные клетки, то есть #
+				chess += "#"
 			}
 		}
 		fmt.Print("\n\n")
+		chess += "n"
 	}
-	return ""
+	return chess
 }
 
 func main() {
