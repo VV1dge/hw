@@ -5,7 +5,7 @@ import "fmt"
 func main() {
 	var x, y int
 	fmt.Println("Введите значение по горизонтали")
-	_, err := fmt.Scanf("%d", &x)
+	_, err := fmt.Scanf("%dd", &x)
 	if err != nil {
 		fmt.Printf("Error: %v", err)
 	}
