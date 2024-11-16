@@ -11,10 +11,10 @@ func TestCreateBoard(t *testing.T) {
 		y    int
 		want string
 	}{
-		{1, 1, " n"},
-		{2, 2, " #n# n"},
-		{3, 3, " # n# #n # n"},
-		{4, 4, " # #n# # n # #n# # n"},
+		{1, 1, " \n"},
+		{2, 2, " #\n# \n"},
+		{3, 3, " # \n# #\n # \n"},
+		{4, 4, " # #\n# # \n # #\n# # \n"},
 	}
 
 	for _, test := range tests {
