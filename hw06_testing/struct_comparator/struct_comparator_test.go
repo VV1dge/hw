@@ -1,4 +1,4 @@
-package struct_comparator
+package main
 
 import "testing"
 
