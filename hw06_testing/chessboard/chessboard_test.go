@@ -1,4 +1,4 @@
-package chessboard
+package main
 
 import (
 	"fmt"
